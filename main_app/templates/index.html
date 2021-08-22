@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Rush</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="gold_amt">
+            <h3>Your Gold: {{ request.session.gold_amt }}</h3>
+            <form action="reset">
+                <button type="submit">Reset Count</button>
+            </form>
+        </div>
+        <div id="mid-section-panel">
+            <form class="box" method="POST" action="process_gold">
+                {% csrf_token %}
+                <input type="hidden" name="gold_src" value="Farm">
+                <p class="type_title">Farm</p>
+                <p>(earns 10-20 gold)</p>
+                <button type="submit">Find Gold!!</button>
+            </form>
+            <form class="box" method="POST" action="process_gold">
+                {% csrf_token %}
+                <input type="hidden" name="gold_src" value="Cave">
+                <p class="type_title">Cave</p>
+                <p>(earns 5-10 gold)</p>
+                <button type="submit">Find Gold!!</button>
+            </form>
+            <form class="box" method="POST" action="process_gold">
+                {% csrf_token %}
+                <input type="hidden" name="gold_src" value="House">
+                <p class="type_title">House</p>
+                <p>(earns 2-5 gold)</p>
+                <button type="submit">Find Gold!!</button>
+            </form>
+            <form class="box" method="POST" action="process_gold">
+                {% csrf_token %}
+                <input type="hidden" name="gold_src" value="Casino">
+                <p class="type_title">Casino</p>
+                <p>(earns/takes 0-50 gold)</p>
+                <button type="submit">Find Gold!!</button>
+            </form>
+        </div>
+        <div id="activity_log_container">
+            <h6>Activities:</h6>
+            <div id="activity_log">
+                {% for activity in request.session.activity_log %}
+                    {{ activity | safe }}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

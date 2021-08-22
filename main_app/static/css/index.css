@@ -1,0 +1,38 @@
+#wrapper{
+    display: flexbox;
+    margin-left: 200px;
+    margin-right:200px;
+}
+#gold_amt{
+    flex-wrap: ;
+    text-align: center;
+
+}
+#mid-section-panel{
+    display: flexbox;
+    position: relative;
+    width: fit-content;
+    height: 250px;
+    display: block;
+    text-align: center;
+}
+.box{
+    background-color: gold;
+    display: -webkit-inline-box;
+    -moz-box-orient: vertical;
+    width: 20%;
+    height: 60%;
+}
+.loss{
+    color: red;
+}
+.gain{
+    color: seagreen;
+}
+.activity_log{
+    font-style: oblique;
+}
+.activity_log_container{
+    display: flexbox;
+    position: relative;
+}
